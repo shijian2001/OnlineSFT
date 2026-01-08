@@ -41,34 +41,21 @@ uv sync --active
 ### 2. Run Training
 
 ```bash
-# Basic usage with default settings
+# Basic usage
 python scripts/run_pipeline.py \
     --model Qwen/Qwen3-8B \
     --dataset aime \
     --output outputs/my_run
 
-# With custom settings
-python scripts/run_pipeline.py \
-    --model Qwen/Qwen3-8B \
-    --dataset aime \
-    --output outputs/my_run \
-    --batch-size 16 \
-    --validate-every 2 \
-    --synthesizer success
-
-# With LLM-based synthesis
-python scripts/run_pipeline.py \
-    --model Qwen/Qwen3-8B \
-    --dataset aime \
-    --synthesizer llm \
-    --llm-model gpt-4o \
-    --api-keys-path api_keys.json
-
-# No-eval mode (direct synthesis)
-python scripts/run_pipeline.py \
-    --model Qwen/Qwen3-8B \
-    --dataset aime \
-    --no-eval
+# Common parameters:
+#   --tensor-parallel N          # Number of GPUs (default: 8)
+#   --batch-size N               # Inference batch size (default: 8)
+#   --synthesizer TYPE           # direct|success|ground_truth|llm (default: direct)
+#   --api-keys-path PATH         # Required for --synthesizer llm
+#   --llm-model MODEL            # LLM model name (default: gpt-4o)
+#   --no-eval                    # Skip evaluation step
+#   --validate-every N           # Validate every N steps (default: 1)
+#   --early-stop-patience N      # Early stopping patience (default: 5)
 ```
 
 ### 3. Evaluate Checkpoint

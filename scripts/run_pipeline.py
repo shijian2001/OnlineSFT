@@ -143,8 +143,8 @@ def parse_args():
     parser.add_argument(
         "--tensor-parallel",
         type=int,
-        default=1,
-        help="Tensor parallel size (default: 1)",
+        default=8,
+        help="Tensor parallel size (default: 8)",
     )
     parser.add_argument(
         "--max-model-len",
