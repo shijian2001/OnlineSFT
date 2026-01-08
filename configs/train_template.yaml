@@ -1,0 +1,29 @@
+# LLaMA-Factory Training Template
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+
+# Default hyperparameters (will be overridden by pipeline)
+num_train_epochs: 1
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 1
+learning_rate: 1.0e-5
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+
+# LoRA config
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.05
+
+# Save & Log
+logging_steps: 10
+save_steps: 100
+save_total_limit: 3
+bf16: true
+ddp_timeout: 180000000
+
+# Cutoff
+cutoff_len: 4096
+

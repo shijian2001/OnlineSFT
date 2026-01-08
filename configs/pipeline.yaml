@@ -1,0 +1,34 @@
+# OnlineSFT Pipeline Configuration Example
+model_path: "Qwen/Qwen3-8B"
+output_dir: "outputs"
+dataset: "aime"
+batch_size: 8
+validate_every: 1
+early_stop_patience: 5
+min_samples: 1
+use_eval: true
+
+# Generation config
+generation:
+  max_tokens: 4096
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  stop: []
+
+# Training config
+training:
+  num_epochs: 1
+  batch_size: 4
+  learning_rate: 1.0e-5
+  lora_rank: 8
+  lora_alpha: 16
+
+# Synthesizer config
+synthesizer:
+  type: "llm"  # "direct", "success_only", "ground_truth", "llm"
+  model: "gpt-4o"
+  include_success: true
+  include_failure: true
+  max_concurrent: 10
+
