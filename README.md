@@ -16,10 +16,10 @@ A framework for continuous learning and model improvement through iterative infe
 
 ## 📋 Requirements
 
-- Python 3.10+
-- PyTorch 2.0+
-- vLLM 0.6+ (for inference)
-- LLaMA-Factory (for training)
+- Python 3.11+
+- PyTorch 2.4+
+- vLLM 0.6-0.11 (for inference)
+- LLaMA-Factory (auto-installed from GitHub)
 
 ## 🚀 Quick Start
 

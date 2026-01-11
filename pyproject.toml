@@ -1,21 +1,21 @@
 [project]
 name = "online-sft"
 version = "0.1.0"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = [
-    # Core dependencies
-    "torch>=2.0",
-    "transformers>=4.30.0",
+    # Core dependencies (aligned with LLaMA-Factory)
+    "torch>=2.4.0",
+    "transformers>=4.51.0,<=4.57.1,!=4.52.0,!=4.57.0",
+    "datasets>=2.16.0,<=4.0.0",
     "pyyaml",
-    "datasets",
     "sympy",
     
     # API dependencies
     "aiohttp",
     "openai>=1.0.0",
     
-    # Inference
-    "vllm>=0.6.0",
+    # Inference (compatible with LLaMA-Factory optional deps)
+    "vllm>=0.6.0,<=0.11.0",
     
     # Training framework (auto-installed from GitHub)
     "llamafactory @ git+https://github.com/hiyouga/LLaMA-Factory.git",
